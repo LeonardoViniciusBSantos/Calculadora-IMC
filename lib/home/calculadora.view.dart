@@ -27,7 +27,13 @@ class _CalculadoraIMCState extends State<CalculadoraIMC> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Calcule seu IMC"),
+        backgroundColor: Colors.blueGrey,
+        title: Text("Calcule seu IMC",
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+        ),
+        centerTitle: true,
       ),
       body: Padding(
         padding: EdgeInsets.all(20.0),
