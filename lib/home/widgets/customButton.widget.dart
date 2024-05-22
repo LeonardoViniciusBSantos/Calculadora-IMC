@@ -2,26 +2,29 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
-  final VoidCallback onPressed;
+  final VoidCallback onTap;
 
   CustomButton({
     required this.text,
-    required this.onPressed,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.black,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(0.0),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 300,
+        height: 60,
+        decoration: BoxDecoration(
+            color: Colors.black, borderRadius: BorderRadius.circular(10)),
+        child: Center(
+          child: Text(
+            text,
+            style: TextStyle(color: Colors.white, fontSize: 24),
+          ),
         ),
       ),
-      child: Text(text, style: TextStyle(
-        color: Colors.white,
-      ),),
     );
   }
 }
