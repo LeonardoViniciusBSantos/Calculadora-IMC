@@ -19,7 +19,7 @@ class ResultScreen extends StatelessWidget {
     }
   }
 
-  IconData getImcIcon(double imc) {
+  IconData getIcon(double imc) {
     if (imc < 16.0) {
       return Icons.sentiment_very_dissatisfied;
     } else if (imc < 18.5) {
@@ -33,7 +33,7 @@ class ResultScreen extends StatelessWidget {
     }
   }
 
-  Color getImcIconColor(double imc) {
+  Color getColor(double imc) {
     if (imc < 16.0) {
       return Colors.red;
     } else if (imc < 18.5) {
@@ -50,8 +50,6 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String category = getImcCategory(imc);
-    IconData icon = getImcIcon(imc);
-    Color iconColor = getImcIconColor(imc);
 
     return Scaffold(
       appBar: AppBar(title: Text('Resultado do IMC')),
@@ -60,9 +58,9 @@ class ResultScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              icon,
+              getIcon(imc),
               size: 100,
-              color: iconColor,
+              color: getColor(imc),
             ),
             SizedBox(height: 16),
             Text(

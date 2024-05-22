@@ -9,8 +9,8 @@ class InputScreen extends StatefulWidget {
 }
 
 class _InputScreenState extends State<InputScreen> {
-  final TextEditingController _heightController = TextEditingController();
-  final TextEditingController _weightController = TextEditingController();
+  final TextEditingController heightController = TextEditingController();
+  final TextEditingController weightController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,20 +24,20 @@ class _InputScreenState extends State<InputScreen> {
           child: Column(
             children: [
               CustomTextField(
-                controller: _heightController,
+                controller: heightController,
                 label: 'Altura (cm)',
               ),
               SizedBox(height: 16),
               CustomTextField(
-                controller: _weightController,
+                controller: weightController,
                 label: 'Peso (kg)',
               ),
               SizedBox(height: 32),
               CustomButton(
                   text: 'Calcular IMC',
                   onTap: () {
-                    double height = double.parse(_heightController.text) / 100;
-                    double weight = double.parse(_weightController.text);
+                    double height = double.parse(heightController.text) / 100;
+                    double weight = double.parse(weightController.text);
                     double imc = weight / (height * height);
                     Navigator.push(
                       context,
